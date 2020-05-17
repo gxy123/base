@@ -13,7 +13,8 @@ public enum CommonCode {
     NEED_MSG_CODE_ERROR(401002, "需要短信验证码"),
     NEED_BIND_PHONE(401003, "需要绑定手机号"),
     VERIFY_CODE_NEED_TIME(401004, "验证码倒计时状态"),
-    SYSTEM_ERROR(500000, "服务异常");
+    SYSTEM_ERROR(500000, "服务异常"),
+    TOKEN_EXPIRED(500001, "token已过期");
 
     private Integer code;
     private String message;

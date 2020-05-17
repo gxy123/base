@@ -2,6 +2,7 @@ package com.gxy.client.base;
 
 import com.gxy.service.base.CommonCode;
 import lombok.Data;
+import org.slf4j.MDC;
 
 import java.io.Serializable;
 
@@ -15,11 +16,13 @@ public class CommonResult<T> implements Serializable {
     private Integer total = 0;
 
     public CommonResult() {
+        this.traceId = MDC.get("traceId");
     }
 
     public CommonResult(T result) {
         this.success = true;
         this.result = result;
+        this.traceId = MDC.get("traceId");
     }
 
     public CommonResult(int code, String message) {
@@ -29,6 +32,7 @@ public class CommonResult<T> implements Serializable {
 
         this.code = code;
         this.message = message;
+        this.traceId = MDC.get("traceId");
     }
 
     public static <T> CommonResult<T> successReturn(T t) {
